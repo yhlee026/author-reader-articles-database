@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title><%= article.published_article_title %></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+      body {
+        font-family: "Lobster", cursive;
+        background: #ddf0ef;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 70vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-4">
+      <h1 class="text-center mb-4"><%= article.published_article_title %></h1>
+      <div class="mb-4"><%= article.published_article_content %></div>
+      <div class="mb-4">By <%= article.user_name %></div>
+
+      <div class="mb-4">
+        <h2 class="mb-3">Comments</h2>
+        <% comments.forEach(comment => { %>
+        <div class="mb-3 p-3 border rounded">
+          <div class="font-weight-bold"><%= comment.user_name %></div>
+          <div class="mb-3"><%= comment.comment %></div>
+        </div>
+        <% }) %>
+      </div>
+
+      <div class="mb-4">
+        <h2 class="mb-3">Leave a comment:</h2>
+        <form
+          action="/reader/article/<%= article.article_id %>/comment"
+          method="post"
+        >
+          <div class="form-group">
+            <label for="userName">Name:</label>
+            <input
+              type="text"
+              name="userName"
+              id="userName"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="comment">Comment:</label>
+            <textarea
+              name="comment"
+              id="comment"
+              class="form-control"
+              required
+            ></textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="text-center">
+        <a href="/reader/reader-home-page" class="btn btn-secondary"> Back </a>
+      </div>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </body>
+</html>

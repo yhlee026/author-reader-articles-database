@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Reader Home Page</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Optional theme -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap-theme.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+      body {
+        font-family: "Lobster", cursive;
+        background: #ddf0ef;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 70vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 offset-md-1">
+          <h1 class="text-center mt-4 mb-4">Reader Home Page</h1>
+          <h2 class="mt-4">Articles</h2>
+          <div class="list-group">
+            <% publishedArticles.forEach(article =>{%>
+            <a
+              class="list-group-item list-group-item-action"
+              href="/reader/article/<%= article.article_id %>"
+              ><%= article.published_article_title %></a
+            >
+            <% }) %>
+          </div>
+          <div class="mt-4 text-center">
+            <a href="/" class="btn btn-secondary">Main Page</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </body>
+</html>

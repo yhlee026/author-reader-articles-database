@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Create Draft</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Optional theme -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap-theme.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+      body {
+        font-family: "Lobster", cursive;
+        background: #ddf0ef;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 70vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <h1 class="text-center mt-4 mb-4">Draft</h1>
+          <form action="/author/create-draft" method="post">
+            <div class="form-group text-center">
+              <label for="userName">Name:</label>
+              <input
+                type="text"
+                name="userName"
+                id="userName"
+                required
+              /><br /><br />
+            </div>
+
+            <div class="form-group text-center">
+              <label for="articleTitle">Article Title:</label>
+              <input
+                type="text"
+                name="articleTitle"
+                id="articleTitle"
+                required
+              /><br /><br />
+            </div>
+
+            <div class="form-group text-center">
+              <label for="articleContent">Content:</label>
+              <textarea
+                name="articleContent"
+                id="articleContent"
+                rows="8"
+                required
+              ></textarea
+              ><br /><br />
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+            <div class="text-center mt-3">
+              <button
+                onclick="window.location.href ='/author/author-home-page'"
+                class="btn btn-secondary"
+              >
+                Back
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </body>
+</html>
